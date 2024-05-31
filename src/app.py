@@ -1,4 +1,5 @@
-from utils import db_connect
-engine = db_connect()
+from flask import Flask, request, render_template
+from pickle import load
 
-# your code here
+app = Flask(__name__)
+model = load(open("../models/random_forest_classifier_default_42.sav", "rb"))
