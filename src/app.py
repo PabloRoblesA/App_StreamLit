@@ -12,8 +12,8 @@ st.title("Prediccion de legendarios")
 
 val = st.slider("Total", min_value=0, max_value=750, step=1)
 
-if st.button("Predict"):
+if st.button("Quien es ese pokeon?"):
 
     prediction = str(model.predict([[val]])[0])
     pred_class = class_dict[prediction]
-    st.write("Prediction:", pred_class)
+    st.write("Quien es ese pokeon?:", pred_class)
