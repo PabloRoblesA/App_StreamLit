@@ -16,4 +16,4 @@ if st.button("Quien es ese pokeon?"):
 
     prediction = str(model.predict([[val]])[0])
     pred_class = class_dict[prediction]
-    st.write("Quien es ese pokeon?:", pred_class)
+    st.write("Quien es ese pokemon?:", pred_class)
