@@ -11,7 +11,13 @@ class_dict = {
 }
 
 st.title("Prediccion de legendarios")
-val1 = st.slider("Total", min_value=180, max_value=780, step=1)
+val1 = st.slider("Total", min_value=1, max_value=780, step=1)
+val2 = st.slider("HP", min_value=1, max_value=780, step=1)
+val3 = st.slider("Attack", min_value=1, max_value=780, step=1)
+val4 = st.slider("Defense", min_value=1, max_value=780, step=1)
+val5 = st.slider("Sp. Atk", min_value=1, max_value=780, step=1)
+val6 = st.slider("Sp. Def", min_value=1, max_value=780, step=1)
+val7 = st.slider("Speed", min_value=1, max_value=780, step=1)
 
 if st.button("Quien es ese pokemon?"):
     features = np.array([[val1]])
