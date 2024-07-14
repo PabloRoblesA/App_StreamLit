@@ -1,19 +1,25 @@
 from pickle import load
 import streamlit as st
 
-model = load(open("../models/logistic_regression_default.sav", "rb"))
+model = load(open("../models/random_forest_boosting_42.sav", "rb"))
 
 class_dict = {
-    "True": "Es un pokemon LEGENDARIO, atrapalo!",
-    "False": "Mejor suerte la proxima, no es LEGENDARIO",
+
+    "Erratic": "Crecimiento erratico",
+    "Fast": "Crecimiento rapido",
+    "Fluctuating":"Crecimiento fluctuante",
+    "Medium Fast": "Crecimiento medio rapido",
+    "Medium Slow": "Crecimiento medio lento",
+    "Slow": 'Crecimiento lento'
 }
 
-st.title("Prediccion de legendarios")
+st.title("Tasa de crecimiento de Pokemon")
 
-val = st.slider("Total", min_value=10, max_value=780, step=1)
+val1 = st.slider("total", min_value=175, max_value=720, step=1)
+val2 = st.slider("catch_rate", min_value=3, max_value=255, step=1)
 
-if st.button("Quien es ese pokemon?"):
+if st.button("¿A que velocidad crece tu pokemon?"):
 
-    prediction = str(model.predict([[val]])[0])
+    prediction = str(model.predict([[val1,val2]])[0])
     pred_class = class_dict[prediction]
-    st.write("Quien es ese pokemon?:", pred_class)
+    st.write("Pokemon de:", pred_class)
